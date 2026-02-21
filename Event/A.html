@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        height: 500px;
+        width: 500px;
+        background: black;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ball {
+        height: 50px;
+        width: 50px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        transition: transform 0.2s ease;
+        /* 👈 smooth transition */
+    }
+
+    .cart1 {
+        position: relative;
+        top: 80px;
+        height: 120px;
+        width: 420px;
+        background-color: yellow;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .ball {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+</head>
+
+<body>
+    <h1>Hello</h1>
+
+    <div class="box">
+        <div class="ball"></div>
+        <div class="cart1"></div>
+        <div class="cart2"></div>
+        <div class="cart3"></div>
+        <div class="cart4"></div>
+    </div>
+</body>
+<script>
+
+    const h1 = document.querySelector("h1")
+    const box = document.querySelector(".box")
+    const ball = document.querySelector(".ball")
+
+    // h1.addEventListener("click", () => {
+    //     console.log("H1 Tag Cliked")
+    // })
+    h1.addEventListener("dblclick", () => {
+        console.log("H1 Tag DBLCliked")
+    })
+
+    // box.addEventListener("mouseover", () => {
+    //     console.log("Hover")
+    // })
+    // box.addEventListener("mouseenter", () => {
+    //     console.log("mouseenter")
+    // })
+    // box.addEventListener("mouseleave", () => {
+    //     console.log("mouseleave")
+    // })
+    // box.addEventListener("mousedown", () => {
+    //     console.log("mousedown")
+    // })
+    // box.addEventListener("mouseup", () => {
+    //     console.log("mouseup")
+    // })
+
+    box.addEventListener("mousemove", (e) => {
+        ball.style.left = e.offsetX + "px";
+        ball.style.top = e.offsetY + "px";
+    });
+
+    const c1 = document.querySelector(".cart1")
+
+    c1.addEventListener("mouseenter", (e) => {
+        ball.style.height = "100px";
+        ball.style.width = "100px";
+        ball.style.backgroundImage = "url('https://images.unsplash.com/photo-1741821159859-c129cf0289f2?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+        c1.style.backgroundImage = "url('https://images.unsplash.com/photo-1769334440627-35cbcbf3cadb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+
+    })
+    c1.addEventListener("mouseleave", (e) => {
+        ball.style.height = "50px";
+        ball.style.width = "50px";
+        ball.style.backgroundImage = "url('')"
+        c1.style.backgroundImage = "url('')"
+    })
+
+
+
+</script>
+
+</html>

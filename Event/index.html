@@ -4,16 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .box {
+            height: 500px;
+            width: 500px;
+            background: black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ball {
+            height: 50px;
+            width: 50px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            transition: all transform 0.6s linear;
+            /* 👈 smooth transition */
+        }
+
+        .cart1 {
+            position: relative;
+            top: 80px;
+            height: 120px;
+            width: 420px;
+            background-color: yellow;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .ball {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <h1 onmouseover="FN()">Hello 1</h1> -->
-    <!-- <button onclick="alert('ASDHJ')">Click Me!</button> -->
-    <button id="abcd">Reset</button>
-    <button id="abcds">start</button>
-    <!-- <button id="r">Reset</button> -->
-</body>
+    <h1>Hello</h1>
 
+    <div class="box">
+        <div class="ball"></div>
+        <div class="cart1"></div>
+        <div class="cart2"></div>
+        <div class="cart3"></div>
+        <div class="cart4"></div>
+    </div>
+</body>
 <script src="./Script.js"></script>
 
 </html>
