@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body id="body">
+
+    <form>
+
+        <input type="text" name="tagname" id="tagname" placeholder="Tag Name" required>
+        <input type="text" name="tagContent" id="tagContent" placeholder="Tag Content" required>
+
+        <select name="tagType" id="tagType">
+            <option value="open" hidden>Select Tag</option>
+            <option value="main">Main</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+    <main id="main">
+        <div id="el-box"></div>
+        <div id="el-box1"></div>
+    </main>
+
+</body>
+<script src="./script.js"></script>
+
+</html>

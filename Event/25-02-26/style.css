@@ -1,0 +1,20 @@
+#el-box {
+    background-color: red;
+    height: 80vh;
+    width: 50%;
+}
+
+#el-box1 {
+    background-color: blue;
+    height: 80vh;
+    width: 50%;
+}
+
+main {
+    display: flex;
+    border: 6px solid yellow;
+    height: 200vh;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
