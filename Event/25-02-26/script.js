@@ -30,6 +30,12 @@ function addTag() {
 
     const newElement = document.createElement(TagName.value)
     newElement.innerText = TagText.value
+    newElement.style.backgroundColor = ["lightblue", "red", "lightgreen", "lightpink", "lightyellow", "pink"][Math.floor(Math.random() * 6)]
+
+    newElement.style.padding = "30px"
+    newElement.style.margin = "10px"
+    newElement.style.border = `${Math.floor(Math.random() * 10)}px solid black`
+    // newElement.id = "el-" + TagText.value.toLowerCase().slice(0, 5)
     newElement.id = "el-" + TagText.value.toLowerCase().slice(0, 5)
     console.log({ newElement })
 
@@ -38,7 +44,7 @@ function addTag() {
 }
 
 form.addEventListener("submit", (e) => {
-    alert("Okay")
+    // alert("Okay")
     e.preventDefault()
     addTag()
 
@@ -47,7 +53,7 @@ form.addEventListener("submit", (e) => {
 
     select.innerHTML =
         `
-     <option value="open" hidden>Select Tag</option>
+        <option value="open" hidden>Select Tag</option>
             <option value="main">Main</option>
     `
     updateSelect();
