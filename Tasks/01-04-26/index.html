@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Center the form on the page */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        /* Form container */
+        form {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Inputs & select */
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        /* Focus effect */
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+        }
+
+        /* Submit button */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #4facfe;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        /* Hover effect */
+        input[type="submit"]:hover {
+            background: #00c6ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        <input type="text" name="name" id="name" placeholder="Enter Your Username">
+        <br />
+        <br />
+        <input type="text" name="image" id="image" placeholder="Enter Image URL Here">
+        <br />
+        <br />
+        <select name="role" id="role">
+            <option hidden>Select an Role</option>
+            <option value="admin">admin</option>
+            <option value="user">user</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+<script src="./script.js"></script>
+
+</html>
