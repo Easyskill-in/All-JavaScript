@@ -39,3 +39,4 @@
 // }
 
 console.log(Math.cbrt(28))
+console.log(Math.cbrt(28))
