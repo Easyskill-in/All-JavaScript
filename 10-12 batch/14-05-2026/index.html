@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-color: lightblue;
+
+
+        }
+
+
+        .ball {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            transition: all ease 0.2s;
+            z-index: 99;
+            background-image: url("https://images.unsplash.com/photo-1778017825902-5d212f5ce532?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-clip: border-box; */
+            background-attachment: fixed;
+        }
+
+        .ball1 {
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+            transition: all ease 0.4s;
+
+
+            background-image: url("https://images.unsplash.com/photo-1777829999062-917dd30ad425?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-clip: border-box; */
+            background-attachment: fixed;
+
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="ball" style="top:0;left: 0;"></div>
+    <div class="ball1" style="top:0;left: 0;"></div>
+
+
+
+</body>
+<script src="./script.js"></script>
+
+</html>
