@@ -107,3 +107,6 @@ function fn(arr) {
 
     return max
 }
+
+
+//count 1 from n numbers
