@@ -66,3 +66,44 @@ BlackBox.style.backgroundColor = "black"
 
 yellowBox.appendChild(BlackBox)
 BlackBox.after(BlueBox)
+
+
+
+
+let arr = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 4, 5, 5, 5, 6, 6, 7, 8, 12, 13, 15, 15]
+
+
+// function count(arr, target) {
+//     let icount = 0;
+//     let c = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         icount++;
+
+//         if (arr[i] > target) {
+//             return { c, icount };
+//         } else if (arr[i] === target) {
+//             c++;
+//         }
+//     }
+
+//     return { c, icount };
+// }
+
+function count(arr, target) {
+
+    return (arr.lastIndexOf(target) - arr.indexOf(target)) + 1;
+}
+
+function fn(arr) {
+    let max = { num: 0, count: 0 }
+    let newArr = [...new Set(arr)]
+
+    newArr.forEach(v => {
+        let result = count(arr, v)
+        if (result > max.count) {
+            max = { num: v, count: result }
+        }
+    })
+
+    return max
+}
