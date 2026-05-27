@@ -80,3 +80,22 @@ var longestNiceSubstring = function (s) {
 
 // };
 // console.log(longestNiceSubstring("cCHh"));
+var longestNiceSubstring = function (s) {
+
+    if (s.length < 2) {
+        return ""
+    }
+    let charSet = new Set(s)
+    for (let i = 0; i < s.length; i++) {
+        if (!charSet.has(s[i].toUpperCase()) || !charSet.has(s[i].toLowerCase())
+        ) {
+            let left = longestNiceSubstring(s.slice(0, i))
+            let right = longestNiceSubstring(s.slice(i + 1, s.length))
+
+            return left.length >= right.length ? left : right
+        }
+    }
+    return s
+};
+
+console.log(longestNiceSubstring("YazaAay"));
