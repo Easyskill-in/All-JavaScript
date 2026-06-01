@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+
+}
+
+
+
+.ball {
+    /* clip-path: polygon(50% 30%, 83% 12%, 100% 43%, 94% 78%, 55% 81%, 41% 67%, 13% 83%, 0% 43%, 17% 12%); */
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+
+
+}
+
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.right img {
+    height: 400px;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.left img {
+    height: 400px;
+}
