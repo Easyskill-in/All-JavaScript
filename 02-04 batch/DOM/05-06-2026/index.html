@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            padding: 3px;
+            margin: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <label for="name">Task:</label>
+        <input type="text" name="Task" id="name" placeholder="Name">
+
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
+    <br>
+
+    <table border="1" cellspacing="1" cellpadding="1">
+        <thead>
+
+            <tr>
+                <th>No</th>
+                <th>Task</th>
+                <th>Delete</th>
+                <th>Done</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+</body>
+<script src="./script.js"></script>
+
+</html>
