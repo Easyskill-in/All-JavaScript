@@ -1,0 +1,171 @@
+const form = document.querySelector("form")
+
+let count = 0
+
+const timer = document.createElement("h1")
+form.appendChild(timer)
+timer.innerText = `Timer Count: ${count}`
+let inerval = setInterval(() => {
+    count++;
+    timer.innerText =  `Timer Count: ${count}`;
+
+    if (count === 60) {
+        clearInterval(inerval)
+       const radios = document.querySelectorAll('input[type="radio"]');
+
+        radios.forEach((radio) => {
+            radio.disabled = true;
+        });
+        count = 0
+    }
+}, 1000)
+
+
+
+let score = 0;
+let quiz = [
+    {
+        id: 101,
+        question: "What is the capital of France?",
+        options: ["Paris", "London", "Berlin", "Madrid"],
+        answer: "Paris"
+    },
+    {
+        id: 102,
+        question: "What is the capital of Germany?",
+        options: ["Paris", "London", "Berlin", "Madrid"],
+        answer: "Berlin"
+    },
+    {
+        id: 103,
+        question: "What is the capital of Spain?",
+        options: ["Paris", "London", "Berlin", "Madrid"],
+        answer: "Madrid"
+    },
+    {
+        id: 104,
+        question: "What is the capital of the United Kingdom?",
+        options: ["Paris", "London", "Berlin", "Madrid"],
+        answer: "London"
+    },
+    {
+        id: 105,
+        question: "What is the capital of Italy?",
+        options: ["Paris", "London", "Berlin", "Rome"],
+        answer: "Rome"
+    }
+]
+
+let x = 0;
+
+quiz.forEach((value, index) => {
+    const ques = document.createElement("p")
+    ques.innerText = value.question
+    form.appendChild(ques)
+    value.options.forEach((option) => {
+        x++;
+        const optionss = document.createElement("input")
+        optionss.type = "radio"
+        form.appendChild(optionss)
+        optionss.value = option
+        optionss.name = `name${index}`
+        optionss.id = `${option}${x}`
+
+        const lab = document.createElement("label")
+        lab.innerText = option
+        lab.htmlFor = `${option}${x}`
+        form.appendChild(lab)
+        
+        
+        
+
+
+        optionss.addEventListener("input", (e) => {
+            // console.log(e.target.value)
+            // console.log(e.target.checked)
+            // console.log(value.id)
+            // console.log(e)
+            setScore(value.id, e.target.value)
+        })
+    })
+})
+
+function setScore(id, ans) {
+    const value = quiz.find((v) => v.id === id)
+    console.log(value)
+    if (value.answer === ans) {
+        score++;
+    }
+}
+
+const button = document.createElement("button")
+
+button.innerText = "Submit"
+button.type = "submit"
+button.style.display = "block"
+button.style.marginTop = "25px"
+form.appendChild(button)
+
+
+function calculateScore() {
+    let score = 0;
+    const result = document.createElement("h1")
+    result.innerText = `Your Score is: ${score}`
+    form.appendChild(result)
+
+        quiz.forEach((question,index)=>{
+            const selected = document.querySelector(`input[name="name${index}"]:checked`)
+
+            if(selected && selected.value === question.answer){
+                score++
+            }
+        })
+    
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    clearInterval(interval); // stop timer
+    calculateScore();
+});
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <!-- <p class="ques1">Which animal do you like?</p>
+    <input type="radio" id="option1" name="question1">
+    <label for="option1">Dog</label>
+
+    <input type="radio" id="option2" name="question1">
+    <label for="option2">Cat</label>
+
+     <input type="radio" id="option3" name="question1">
+    <label for="option3">Cow</label>   
+
+     <input type="radio" id="option4" name="question1">
+    <label for="option4">Lion</label>   -->
+
+    
+
+    <!-- <br>
+    <br>
+    <button type="submit">Submit</button> -->
+</form>
+</body>
+<script src="script.js"></script>
+
+</html>
