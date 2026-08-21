@@ -41,19 +41,18 @@
 
 // console.log("Next Line")
 
-const select = document.createElement("select")
-const hr = document.createElement("hr")
-const opt = document.createElement("option")
-opt.innerText = "Select Your Choice"
-opt.hidden = true;
+const Input = document.createElement("input")
+const H1 = document.createElement("h1")
+Input.type = "Number"
 
-select.addEventListener("input", (e) => {
-    console.log(e.target.value)
-    GetInfo(e.target.value)
-})
+// let MainAmount = 0
 
 
-document.body.append(select, hr)
+let main = "USD"
+let sub = "USD"
+
+let conversion_rates = {}
+
 
 async function GetInfo(Code = "USD") {
     try {
@@ -62,19 +61,67 @@ async function GetInfo(Code = "USD") {
         const Data = await Res.json();
 
         console.log({ Data });
-        ShowData(Data)
+        // ShowData(Data)
+
+        return Data;
     } catch (error) {
         console.log(error)
     }
 }
 
 
-function ShowData(data) {
+function ShowData(data, action) {
+
+    const select = document.createElement("select")
+    const hr = document.createElement("hr")
+    const opt = document.createElement("option")
+    opt.innerText = "Select Your Country"
+    opt.hidden = true;
+
+    if (action == "main") {
+        select.addEventListener("input", async (e) => {
+            main = e.target.value
+            const MainData = await GetInfo(main)
+
+            console.log(MainData);
+
+            conversion_rates = MainData.conversion_rates;
+
+            if (Input.value >= 0 && select.value != "") {
+                ShowAmount(Input.value)
+            }
+        })
 
 
 
-    console.log(data.conversion_rates)
-    console.log(Object.keys(data.conversion_rates))
+    } else if (action == "sub") {
+        select.addEventListener("input", (e) => {
+            sub = e.target.value
+            if (Input.value >= 0 && select.value != "") {
+                ShowAmount(Input.value)
+            }
+        })
+    } else {
+        console.warn("Not Valid Type")
+        return;
+    }
+
+    // select.addEventListener("input", async (e) => {
+    //     if (action == "main") {
+    //         const SelectData = await GetInfo(e.target.value)
+    //         console.log({ SelectData });
+    //     } else if (action == "sub") {
+
+    //     } else {
+
+    //     }
+    //     console.log(e.target.value)
+
+
+    // })
+
+    // console.log(data.conversion_rates)
+    // console.log(Object.keys(data.conversion_rates))
 
     let Codes = Object.keys(data.conversion_rates)
 
@@ -86,7 +133,44 @@ function ShowData(data) {
         select.appendChild(option)
     })
 
+
+    document.body.append(select, hr)
+
 }
 
-GetInfo()
- 
+
+async function Main() {
+    try {
+
+        const Data = await GetInfo();
+
+
+        ShowData(Data, "main")
+
+        ShowData(Data, "sub")
+
+
+        document.body.appendChild(Input)
+
+    } catch (error) {
+        console.log("Error : ", error)
+    }
+}
+
+Main();
+
+
+
+Input.addEventListener("input", async (e) => {
+    if (e.target.value <= 0) {
+        e.target.value = 0;
+    }
+
+    ShowAmount(e.target.value)
+})
+
+
+function ShowAmount(amount) {
+    H1.innerText = `${amount} ${main} = ${(amount * conversion_rates[sub]).toFixed(2)} ${sub}`;
+    document.body.appendChild(H1)
+}
